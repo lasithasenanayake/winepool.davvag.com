@@ -1,0 +1,39 @@
+{
+    "name" : "profile",
+    "description":"Vue.JS Plugin for Soss Router",
+    "author":"Supun Dissanayake",
+    "version" : "0.1",
+    "gitUrl" : "",
+    "resources": {
+        "files":[
+            {
+                "type" : "mainScript",
+                "location" : "script.js"
+            }
+        ]
+    },
+    "serviceHandler" : {
+        "file": "service.php",
+        "class": "ProfileService",
+        "methods" : {
+            "Save" : {
+                "method" : "POST"
+            },
+            "InvoiceSave" : {
+                "method" : "POST"
+            },
+            "PaymentSave" : {
+                "method" : "POST"
+            },
+            "Search" : {
+                "method" : "GET",
+                "parameters": ["q"]
+            },
+            "q" : {
+                "method" : "POST"
+            }
+        }
+    
+    }
+    
+}

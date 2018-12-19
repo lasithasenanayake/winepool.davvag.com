@@ -1,0 +1,63 @@
+{
+    "components": {
+        "cms-gapp-handler": {
+            "type":"service",
+            "location":"services"
+        },
+        "Artical-all": {
+            "type":"component",
+            "location":"components"
+        },"Artical-view": {
+            "type":"component",
+            "location":"components"
+        },
+        "Artical-form": {
+            "type":"component",
+            "location":"components"
+        },
+        "Button-form": {
+            "type":"component",
+            "location":"components"
+        },
+        "Button-all": {
+            "type":"component",
+            "location":"components"
+        },
+        "menu": {
+            "type":"component",
+            "location":"components"
+        }
+    },
+    "description":{
+        "title": "CMS",
+        "author":"Davvag",
+        "version":"1.1",
+        "icon":"appicon.png"
+    },
+    "tags":["showindock"],
+    "configuration":{
+        "webdock":{
+            "startupComponent" : "menu",
+            "onLoad": ["cms-gapp-handler"],
+            "subApps":{
+                "Articles" : {
+                    "route" : "/artical",
+                    "icon" : "appicon.png"
+                },
+                "All Buttons" : {
+                    "route" : "/buttonsall",
+                    "icon" : "appicon.png"
+                }
+            },
+            "routes":{
+                "partials":{
+                    "/artical" : "Artical-form",
+                    "/articalall" : "Artical-all",
+                    "/buttons":"Button-form",
+                    "/buttonsall":"Button-all",
+                    "/a" : "Artical-view"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,112 @@
+{
+    "name" : "cms-gapp-handler",
+    "description":"Vue.JS Plugin for Soss Router",
+    "author":"Lasitha Senanayake",
+    "version" : "0.1",
+    "gitUrl" : "",
+    "resources": {
+        "files":[
+            {
+                "type" : "mainScript",
+                "location" : "script.js"
+            }
+        ]
+    },"serviceHandler" : {
+        "file": "service.php",
+        "class": "ArticalService",
+        "methods" : {
+            "SaveArtical" : {
+                "method" : "POST"
+            },"Artical" : {
+                "method" : "GET",
+                "parameters": ["q"]
+            }
+        }
+    
+    },
+    "transformers": {
+        "getUri":{
+            "method":"POST",
+            "route":"/getShortUrl",
+            "destMethod":"POST",
+            "destUrl" : "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyB4Eo8JauTdnCfrRyDH6SBnFpc5v6nhNtE",
+            "bodyTemplate" : "@@body@@"
+        },
+        "allArticals": {
+            "method": "GET",
+            "route": "/all",
+            "destMethod": "GET",
+            "destUrl" : "http://localhost:9000/data/d_cms_artical_v1"
+        },"allButtons": {
+            "method": "GET",
+            "route": "/allButtons",
+            "destMethod": "GET",
+            "destUrl" : "http://localhost:9000/data/d_cms_buttons_v1"
+        },"allByBType": {
+            "method": "GET",
+            "route": "/allBType/@catid",
+            "destMethod": "GET",
+            "destUrl" : "http://localhost:9000/data/d_cms_buttons_v1?query=BType:@catid"
+        },"getButtonbyid": {
+            "method": "GET",
+            "route": "/allBType/@catid",
+            "destMethod": "GET",
+            "destUrl" : "http://localhost:9000/data/d_cms_buttons_v1?query=id:@catid"
+        },
+        "insertButton": {
+            "method": "POST",
+            "route": "/insertBtn",
+            "destMethod": "POST",
+            "destUrl" : "http://localhost:9000/data/d_cms_buttons_v1",
+            "bodyTemplate" : "{\"object\":@@body@@}"
+        },
+        "updateButton": {
+            "method": "POST",
+            "route": "/updateBtn",
+            "destMethod": "PUT",
+            "destUrl" : "http://localhost:9000/data/d_cms_buttons_v1",
+            "bodyTemplate" : "{\"object\":@@body@@}"
+        },
+        "insertArtical": {
+            "method": "POST",
+            "route": "/insertArtical",
+            "destMethod": "POST",
+            "destUrl" : "http://localhost:9000/data/d_cms_artical_v1",
+            "bodyTemplate" : "{\"object\":@@body@@}"
+        },
+        "updateArtical": {
+            "method": "POST",
+            "route": "/updateArtical",
+            "destMethod": "PUT",
+            "destUrl" : "http://localhost:9000/data/d_cms_artical_v1",
+            "bodyTemplate" : "{\"object\":@@body@@}"
+        },
+        "insertArticalImage": {
+            "method": "POST",
+            "route": "/insertArticalImage",
+            "destMethod": "POST",
+            "destUrl" : "http://localhost:9000/data/d_cms_artical_imagev1",
+            "bodyTemplate" : "{\"object\":@@body@@}"
+        },"updateArticalImage": {
+            "method": "POST",
+            "route": "/updateArticalImage",
+            "destMethod": "PUT",
+            "destUrl" : "http://localhost:9000/data/d_cms_artical_imagev1",
+            "bodyTemplate" : "{\"object\":@@body@@}"
+        },
+        "getArticalById": {
+            "method": "GET",
+            "route": "/byid/@catid",
+            "destMethod": "GET",
+            "destUrl" : "http://localhost:9000/data/d_cms_artical_v1?query=id:@catid"
+        },
+        "getImagesByArticalId": {
+            "method": "GET",
+            "route": "/Imgsbyid/@catid",
+            "destMethod": "GET",
+            "destUrl" : "http://localhost:9000/data/d_cms_artical_imagev1?query=articalid:@catid"
+        }
+        
+    }
+    
+}

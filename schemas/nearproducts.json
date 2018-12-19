@@ -1,0 +1,41 @@
+{
+    "rawquery" : {
+        "type":"procedure",
+        "parameters" : ["lat","lng","catid"],
+        "query": "call getnearproducts(\"$lat\",\"$lng\",\"$catid\", \"10\")"
+    },
+    "fields" : [
+        {
+            "fieldName":"itemid",
+            "dataType":"int"
+        },
+        {
+            "fieldName":"name",
+            "dataType":"java.lang.String"
+        },
+        {
+            "fieldName":"caption",
+            "dataType":"java.lang.String"
+        },
+        {
+            "fieldName":"price",
+            "dataType":"double"
+        },
+        {
+            "fieldName":"imgurl",
+            "dataType":"java.lang.String"
+        },
+        {
+            "fieldName":"catogory",
+            "dataType":"java.lang.String"
+        },
+        {
+            "fieldName":"uom",
+            "dataType":"java.lang.String"
+        },
+        {
+            "fieldName":"status",
+            "dataType":"java.lang.String"
+        }        
+    ]
+}
