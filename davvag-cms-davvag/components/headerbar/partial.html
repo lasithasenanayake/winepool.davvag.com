@@ -16,9 +16,20 @@
       </li>
     </ul>
     
+    
     <form class="form-inline my-2 my-lg-0" v-if="searchbar">
       <input class="form-control mr-sm-2" type="text" place holder="Search">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <ul class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" height="30px"> English <span class="caret"></span></a>
+        <div class="dropdown-menu" aria-labelledby="themes">
+          <a class="dropdown-item" href="#/home"><img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" height="20px" width="30px"> English </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#/home2"><img src="https://cdn1.iconfinder.com/data/icons/famfamfam_flag_icons/de.png" height="20px" width="30px"> German </a>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>
