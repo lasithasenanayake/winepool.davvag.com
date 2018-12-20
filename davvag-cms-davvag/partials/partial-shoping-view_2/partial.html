@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-3 col-sm-6" v-for="item in products">
+          <div class="product-grid8">
+              <div class="product-image8">
+                  <a href="#">
+                      <img class="pic-1" :src="'components/dock/soss-uploader/service/get/products/'+item.itemid+'-'+item.imgurl">
+                  </a>
+                  <span class="product-discount-label">-20%</span>
+              </div>
+              <div class="product-content">
+                    <div class="price">{{ item.currencycode }}. {{ item.price }}
+                            <span>$20.00</span>
+                        </div>
+                  <h3 class="title"><a href="#">{{ item.name }}</a></h3>
+                  <a class="all-deals" href="">Available Stores<i class="fa fa-angle-right icon"></i></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -14,7 +14,7 @@ table#id-social-table{
 }
 
 .id-soss-routes{
-    margin-top:54px;
+    margin-top:80px;
     min-height: 600px;
 }
 
@@ -32,9 +32,20 @@ h2.blog-post-title{
   margin-left: 20px;
 }
 
+
 .bg-primary {
-    background-color: #000 !important;
-    opacity: 0.7;
+    background-color:#8c0615 !important;
+    opacity: 1;
+}
+
+div#id-footer-bar {
+  background-color:#8c0615!important;
+  padding-top: 30px;
+  color: white;
+}
+
+a.id-copyright-link{
+  color:gainsboro;
 }
 
 .resp-sharing-button__link,
