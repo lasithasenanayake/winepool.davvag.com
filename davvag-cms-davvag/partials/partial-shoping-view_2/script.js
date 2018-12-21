@@ -9,6 +9,9 @@ WEBDOCK.component().register(function(exports){
         selectStore: function(p){
             bindData.product=p;
             $('#modalImagePopup').modal('show');
+        },selectStoreClose: function(){
+            //bindData.product=p;
+            $('#modalImagePopup').modal('toggle');
         }
         },
         data :bindData
