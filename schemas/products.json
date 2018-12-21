@@ -34,6 +34,10 @@
             "dataType":"double"
         },
         {
+            "fieldName":"discountper",
+            "dataType":"double"
+        },
+        {
             "fieldName":"currencycode",
             "dataType":"java.lang.String",
             "annotations":{

@@ -11,8 +11,8 @@
                       <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
                       <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                   </ul>
-                  <span class="product-new-label">Sale</span>
-                  <span class="product-discount-label">20%</span>
+                  <span class="product-new-label" v-if="item.discountper>0">Sale</span>
+                  <span class="product-discount-label" v-if="item.discountper>0">{{ item.discountper }}%</span>
               </div>
               <ul class="rating">
                   <li class="fa fa-star"></li>
@@ -23,8 +23,8 @@
               </ul>
               <div class="product-content">
                   <h3 class="title"><a href="#">{{ item.name }}</a></h3>
-                  <div class="price">{{ item.currencycode }}. {{ item.price }}
-                      <span>$20.00</span>
+                  <div class="price">{{ item.currencycode }}. {{ item.price+(item.price*(item.discountper/100)) }}
+                      <span v-if="item.discountper>0">{{ item.currencycode }}.{{ item.price }}</span>
                   </div>
               </div>
           </div>

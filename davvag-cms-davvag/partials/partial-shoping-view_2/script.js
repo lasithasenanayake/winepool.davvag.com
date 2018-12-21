@@ -1,10 +1,15 @@
 WEBDOCK.component().register(function(exports){
 
     var bindData={
-        products:[]
+        products:[],
+        product:{}
     };
     var vueData =  {
         methods:{
+        selectStore: function(p){
+            bindData.product=p;
+            $('#modalImagePopup').modal('show');
+        }
         },
         data :bindData
         ,

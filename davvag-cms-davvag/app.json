@@ -108,7 +108,7 @@
                 "partials" : {
                     "/" : "partial-home",
                     "/app/@appName/*appRoute" : "partial-app",
-                    "/home" : "partial-shoping-view",
+                    "/home" : "partial-shoping-view_2",
                     "/home2" : "partial-shoping-view_2",
                     "/donate" : "partial-donation",
                     "/notFound": "partial-404",
