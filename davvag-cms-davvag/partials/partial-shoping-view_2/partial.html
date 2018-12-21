@@ -9,11 +9,11 @@
                   <span class="product-discount-label" v-if="item.discountper>0">-{{ item.discountper }}%</span>
               </div>
               <div class="product-content">
-                <div class="price">{{ item.currencycode }}. {{ item.price+(item.price*(item.discountper/100)) }}
+                <div class="price">{{ item.currencycode }}. {{ item.price-(item.price*(item.discountper/100)) }}
                     <span v-if="item.discountper>0">{{ item.currencycode }}.{{ item.price }}</span>
                     </div>
                   <h3 class="title"><a href="#">{{ item.name }}</a></h3>
-                  <button class="form-control btn btn-primary all-deals" v-on:click="selectStore(item)">Available Stores</button>
+                  <button class="form-control btn btn-primary all-deals" v-on:click="selectStore(item)">View Shops</button>
                   
               </div>
           </div>
@@ -38,7 +38,7 @@
                                                 <div class="product-desc">{{ product.caption }}</div>
                                                 <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
                                                 <hr>
-                                                <div class="price">{{ product.currencycode }}. {{ product.price+(product.price*(product.discountper/100)) }}
+                                                <div class="price">{{ product.currencycode }}. {{ product.price-(product.price*(product.discountper/100)) }}
                                                     </div>
                                                 <div class="product-stock">In Stock</div>
                                         </div>
