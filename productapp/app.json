@@ -20,7 +20,7 @@
     "description":{
         "title": "Products",
         "author":"Davvag",
-        "version":"0.1",
+        "version":"0.2",
         "icon":"appicon.png"
     },
     "tags":["showindock"],

@@ -3,16 +3,16 @@
       <div class="col-md-3 col-sm-6" v-for="item in products">
           <div class="product-grid8">
               <div class="product-image8">
-                  <a href="#">
+                  <a href="#" aria-disabled="true">
                       <img class="pic-1" :src="'components/dock/soss-uploader/service/get/products/'+item.itemid+'-'+item.imgurl">
                   </a>
                   <span class="product-discount-label" v-if="item.discountper>0">-{{ item.discountper }}%</span>
               </div>
               <div class="product-content">
-                <div class="price">{{ item.currencycode }}. {{ item.price-(item.price*(item.discountper/100)) }}
-                    <span v-if="item.discountper>0">{{ item.currencycode }}.{{ item.price }}</span>
+                <div class="price">weinpool price: {{ item.currencycode }}. {{ item.price-(item.price*(item.discountper/100)) }} <br/>
+                    Average paid price: <span v-if="item.discountper>0">{{ item.currencycode }}.{{ item.price }}</span>
                     </div>
-                  <h3 class="title"><a href="#">{{ item.name }}</a></h3>
+                  <h3 class="title"><a href="#" aria-disabled="true">{{ item.name }}</a></h3>
                   <button class="form-control btn btn-primary all-deals" v-on:click="selectStore(item)">View Shops</button>
                   
               </div>

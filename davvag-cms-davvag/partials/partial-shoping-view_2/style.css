@@ -35,6 +35,12 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 @media only screen and (max-width:990px){.product-grid8{margin-bottom:30px}
 }
 
+a[aria-disabled="true"] {
+	color: currentColor;
+	display: inline-block;  /* For IE11/ MS Edge bug */
+	pointer-events: none;
+	text-decoration: none;
+  }
 
 
 /*********************************************

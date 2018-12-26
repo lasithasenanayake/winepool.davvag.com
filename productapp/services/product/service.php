@@ -88,6 +88,55 @@ class ProductService {
         
     }
 
+    function getproductid($req){
+        //echo "imain";
+        $data =null;
+        if(isset($_GET["q"])){
+            $result= CacheData::getObjects_fullcache(md5("id:".$_GET["q"]),"d_all_summery");
+            if(!isset($result)){
+                $result = SOSSData::Query ("d_all_summery",urlencode("id:".$_GET["q"]));
+                if($result->success){
+                    //$f->{$s->storename}=$result->result;
+                    if(isset($result->result[0])){
+                        $data= $result->result[0];
+                        CacheData::setObjects(md5("id:".$_GET["q"]),"d_all_summery",$result->result);
+                    }
+                }
+            }else{
+                $data= $result[0];
+            }
+            //$result = SOSSData::Query ("d_cms_artical_v1",urlencode("id:".$_GET["q"]));
+            //var_dump($result);
+            //echo "imain";
+            if(isset($data)){
+                
+                
+                echo '<!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="utf-8" />
+                    <meta name="description" content="'.urldecode($data->summery).'">
+                    <meta name="tags" content="'.urldecode($data->tags).'">
+                    <meta name="og:title" content="'.urldecode($data->title).'">
+                    <meta name="og:description" content="'.urldecode($data->summery).'">
+                    <meta name="og:tags"  content="'.urldecode($data->tags).'">
+                    <meta name="og:image"  content="http://'.$_SERVER["HTTP_HOST"].'/components/davvag-cms-davvag/soss-uploader/service/get/d_cms_artical/'.$_GET["q"]."-".$data->imgname.'">
+                    <title>'.urldecode($data->title).'</title>
+                    
+                </head>
+                <body>
+                    loading.....
+                    <script type="text/javascript">
+                        setTimeout(function(){ window.location = "/#/app/davvag-cms-generalapps/a?id='.$_GET["q"].'"; }, 1000);
+                        
+                    </script>    
+                </body>
+                </html>';
+                exit();      
+
+            }
+        }
+
     public function getAllProducts($req){
         if (isset($_GET["lat"]) && isset($_GET["lng"])){
             require_once (PLUGIN_PATH . "/sossdata/SOSSData.php");
