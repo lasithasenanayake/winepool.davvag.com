@@ -136,7 +136,8 @@ class ProductService {
 
             }
         }
-
+    }
+    
     public function getAllProducts($req){
         if (isset($_GET["lat"]) && isset($_GET["lng"])){
             require_once (PLUGIN_PATH . "/sossdata/SOSSData.php");
