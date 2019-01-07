@@ -19,7 +19,7 @@
             "fieldName":"caption",
             "dataType":"java.lang.String",
             "annotations":{
-                "maxLen": 1000
+                "maxLen": 2000
             }
         },
         {
@@ -31,11 +31,11 @@
         },
         {
             "fieldName":"price",
-            "dataType":"double"
+            "dataType":"float"
         },
         {
             "fieldName":"discountper",
-            "dataType":"double"
+            "dataType":"float"
         },
         {
             "fieldName":"currencycode",

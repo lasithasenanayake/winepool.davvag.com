@@ -32,7 +32,7 @@ class ProductService {
         $product=$req->Body(true);
         $user= Auth::Autendicate("product","save",$res);
         $summery =new stdClass();
-        $summery->summery=$product->caption;
+        $summery->summery=substr($product->caption,0,500);
         $summery->title=$product->name;
         
         //if(isset())
