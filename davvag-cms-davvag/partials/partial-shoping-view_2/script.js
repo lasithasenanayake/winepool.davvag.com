@@ -2,7 +2,7 @@ WEBDOCK.component().register(function(exports){
 
     var bindData={
         products:[],
-        product:{}
+        product:{caption:""}
     };
     var vueData =  {
         methods:{
