@@ -12,7 +12,7 @@
                 <div class="price">weinpool price: {{ item.currencycode }}. {{ item.price-(item.price*(item.discountper/100)) }} <br/>
                     Average paid price: <span v-if="item.discountper>0">{{ item.currencycode }}.{{ item.price }}</span>
                     </div>
-                  <h3 class="title"><a href="#" aria-disabled="true">{{ item.name }}</a></h3>
+                  <h3 class="title"><a href="#" aria-disabled="true" v-html="item.name">{{ item.name }}</a></h3>
                   <button class="form-control btn btn-primary all-deals" v-on:click="selectStore(item)">View Shops</button>
                   
               </div>
@@ -26,7 +26,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="overflow-x: auto;overflow-y: auto;">
             <div class="modal-header">
-                <h2>{{ product.name }}</h2>
+                <h2 v-html="product.name"></h2>
             </div>
             <div class="modal-body">
                 	
