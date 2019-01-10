@@ -59,7 +59,7 @@
             "fieldName":"uom",
             "dataType":"java.lang.String",
             "annotations":{
-                "maxLen": 40
+                "maxLen": 100
             }
         },
         {
