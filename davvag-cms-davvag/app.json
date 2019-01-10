@@ -32,6 +32,10 @@
             "type":"shell",
             "location":"shell"
         },
+        "productsvr": {
+            "type":"shell",
+            "location":"shell"
+        },
         "Artical-list": {
             "type":"component",
             "location":"components"
@@ -97,7 +101,7 @@
     "configuration":{
         "webdock":{
             "startupComponent" : "product",
-            "onLoad": ["dependencies", "soss-routes","soss-routes-vue", "soss-uploader","soss-validator", "auth-handler","soss-data","domain-info"],
+            "onLoad": ["dependencies", "soss-routes","soss-routes-vue", "soss-uploader","soss-validator", "auth-handler","soss-data","domain-info","productsvr"],
             "firewall" : {
                 "guest" : [],
                 "admin": []

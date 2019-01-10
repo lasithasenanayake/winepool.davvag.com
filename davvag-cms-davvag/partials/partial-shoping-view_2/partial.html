@@ -1,4 +1,18 @@
 <div class="container">
+    <div class="row">
+	    <div class="col-12">
+    	    <div id="custom-search-input">
+                <div class="input-group">
+                    <input type="text" class="search-query form-control" placeholder="Search" v-model="q" v-on:keyup="OnkeyEnter"/>
+                    <span class="input-group-btn">
+                        <button type="button" v-on:click="onSearch">
+                            <span class="fa fa-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
   <div class="row">
       <div class="col-md-3 col-sm-6" v-for="item in products">
           <div class="product-grid8 product-wine-image">
