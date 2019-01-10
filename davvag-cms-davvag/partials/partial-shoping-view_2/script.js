@@ -6,7 +6,10 @@ WEBDOCK.component().register(function(exports){
     var bindData={
         products:[],
         product:{caption:""},
-        q:""
+        q:"",
+        loading:false,
+        noproducts:false,
+        allloaded:false
     };
     var vueData =  {
         methods:{
@@ -16,15 +19,20 @@ WEBDOCK.component().register(function(exports){
         },selectStoreClose: function(){
             //bindData.product=p;
             $('#modalImagePopup').modal('toggle');
-        }, 
+        },handleScroll (event) {
+            // Any code to be executed when the window is scrolled
+            console.log(event);
+          }, 
         onSearch () {
             if(bindData.q!=""){
                 page=0;
+                bindData.allloaded=false;
                 bindData.products=[];
                 loadproducts();
             }
         },
         OnkeyEnter: function(e){
+            bindData.noproducts=false;
             if (e.keyCode === 13) {
                 if(bindData.q!=""){
                     page=0;
@@ -57,22 +65,51 @@ WEBDOCK.component().register(function(exports){
         }
     } 
 
+    window.document.body.onscroll = function(e) {
+        
+        //console.log(window.document.body);
+        //console.log(e);
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            // you're at the bottom of the page
+            if(!bindData.allloaded && !bindData.loading){
+                //page=page+size;
+                loadproducts();
+                console.log("Bottom of the page products " +bindData.products.length +" pageNumber "+page);
+            }
+        }
+        //loadproducts();
+    }
+
     function loadproducts(){
+       
+
+        bindData.loading=true;
         var menuhandler  = exports.getComponent("productsvr");
             //var query=[{storename:"products",search:""}];
             menuhandler.services.allProducts({page:page, size:size+"&page="+page+"&q=", q:bindData.q})
                         .then(function(r){
                             console.log(JSON.stringify(r));
                             if(r.success){
+                                if(r.result.length==0){
+                                    bindData.allloaded=true;
+                                }else{
+                                    bindData.allloaded=false;
+                                }
                                 r.result.forEach(element => {
                                     bindData.products.push(element);
                                 });
-                                
+                                if(bindData.products.length==0){
+                                    bindData.noproducts=true;
+                                }else{
+                                    bindData.noproducts=false;
+                                }
+                                bindData.loading=false;
                                 page=page+40;
                             }
                         })
                         .error(function(error){
                             bindData.products=[];
+                            bindData.loading=false;
                             console.log(error.responseJSON);
             });
     }

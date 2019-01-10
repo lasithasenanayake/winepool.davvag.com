@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" @scroll="handleScroll($event)">
     <div class="row">
 	    <div class="col-12">
     	    <div id="custom-search-input">
@@ -35,7 +35,32 @@
   </div>
   
 </div>
-
+<div v-if="loading" class="row" >    
+    <div class="col-md-4 col-sm-6">
+           
+    </div>
+    <div class="col-md-4 col-sm-6">
+            <div id="custom-search-input">
+                <h2><span class="fa fa-refresh fa-spin" ></span> Loading Please wait...</h2>
+            </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+            
+    </div>
+           
+</div>
+<div v-if="noproducts" class="row" >
+        <div class="col-md-4 col-sm-6">
+           
+            </div>    
+        
+        <div class="col-md-4 col-sm-6">
+                <h1> No Results for Search Query "{{ q }}" </h1>
+            </div>
+            <div class="col-md-4 col-sm-6">
+           
+                </div>
+</div>
 <div class="modal fade" id="modalImagePopup" role="dialog" tabindex="-1"  style="overflow-x: auto;overflow-y: auto;width:100%;">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="overflow-x: auto;overflow-y: auto;">
