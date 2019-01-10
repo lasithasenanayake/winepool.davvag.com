@@ -68,9 +68,10 @@ WEBDOCK.component().register(function(exports){
     window.document.body.onscroll = function(e) {
         
         //console.log(window.document.body);
-        //console.log(e);
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        //console.log("test  " + (window.innerHeight + window.scrollY) +" yo " +document.body.offsetHeight);
+        if ((window.innerHeight + window.scrollY+30) >= document.body.offsetHeight) {
             // you're at the bottom of the page
+            console.log("In the event ...");
             if(!bindData.allloaded && !bindData.loading){
                 //page=page+size;
                 loadproducts();
@@ -108,8 +109,10 @@ WEBDOCK.component().register(function(exports){
                             }
                         })
                         .error(function(error){
-                            bindData.products=[];
+                            //bindData.products=[];
                             bindData.loading=false;
+                            bindData.allloaded=false;
+                            //page=
                             console.log(error.responseJSON);
             });
     }
